@@ -1,0 +1,3864 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="moonlight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Veli Studio | Profesyonel Kurumsal Web Tasarım &amp; Geliştirme</title>
+   
+    <!-- Tarayıcı Sekme Logosu (Favicon) -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Arka Plan Görselleri Ön Yükleme (Kusursuz ve Anlık Tema Geçişi) -->
+    <link rel="preload" as="image" href="ayisik.gif">
+    <link rel="preload" as="image" href="korarkaplan.jpg">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ═══════════════════════════════════════
+           TEMA DEĞİŞKENLERİ
+        ═══════════════════════════════════════ */
+
+        /* Varsayılan: Altın Kırmızı (Orijinal) */
+        :root {
+            --primary: #d4af37;
+            --primary-hover: #f3c63f;
+            --accent: #8b0000;
+            --bg-dark: rgba(10, 8, 6, 0.55);
+            --card-bg: rgba(18, 14, 11, 0.7);
+            --card-border: rgba(212, 175, 55, 0.3);
+            --text-main: #f5f2eb;
+            --text-muted: #b8b2a6;
+            --body-bg: #0c0a09;
+            --header-bg: rgba(10, 8, 6, 0.45);
+            --overlay-bg: radial-gradient(circle at center, rgba(12,10,9,0.45) 0%, rgba(10,8,6,0.75) 100%);
+            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --wa-gradient: linear-gradient(90deg, #25d366 0%, #128c7e 100%);
+            --phone-gradient: linear-gradient(90deg, #d4af37 0%, #f3c63f 100%);
+            --btn-primary-bg: linear-gradient(135deg, #d4af37 0%, #a38220 100%);
+            --btn-primary-color: #0c0a09;
+            --scroll-btn-hover: #d4af37;
+            --tag-bg: rgba(212,175,55,0.1);
+            --intro-emblem-bg: rgba(139,0,0,0.6);
+            --intro-emblem-border: #d4af37;
+            --intro-center-shift: 155px;
+        }
+
+        /* Tema: Sakura (Pembe Japon Kiraz Çiçeği) */
+        [data-theme="sakura"] {
+            --primary: #e8a0b4;
+            --primary-hover: #f5c6d8;
+            --accent: #c06080;
+            --bg-dark: rgba(15, 5, 10, 0.6);
+            --card-bg: rgba(20, 8, 15, 0.72);
+            --card-border: rgba(232, 160, 180, 0.3);
+            --text-main: #fdf0f5;
+            --text-muted: #c8a8b5;
+            --body-bg: #0d0508;
+            --header-bg: rgba(15, 5, 10, 0.5);
+            --overlay-bg: radial-gradient(circle at center, rgba(180,60,100,0.12) 0%, rgba(10,4,8,0.82) 100%);
+            --btn-primary-bg: linear-gradient(135deg, #e8a0b4 0%, #b06080 100%);
+            --btn-primary-color: #0d0508;
+            --scroll-btn-hover: #e8a0b4;
+            --tag-bg: rgba(232,160,180,0.12);
+            --intro-emblem-bg: rgba(192,96,128,0.6);
+            --intro-emblem-border: #e8a0b4;
+        }
+
+        /* Tema: Zarif (Beyaz Gümüş Minimalist) */
+        [data-theme="elegant"] {
+            --primary: #c8c8d8;
+            --primary-hover: #e8e8f5;
+            --accent: #505070;
+            --bg-dark: rgba(8, 8, 14, 0.6);
+            --card-bg: rgba(12, 12, 20, 0.75);
+            --card-border: rgba(200, 200, 216, 0.22);
+            --text-main: #efefff;
+            --text-muted: #9898b5;
+            --body-bg: #08080e;
+            --header-bg: rgba(8, 8, 14, 0.5);
+            --overlay-bg: radial-gradient(circle at center, rgba(80,80,120,0.1) 0%, rgba(5,5,12,0.88) 100%);
+            --btn-primary-bg: linear-gradient(135deg, #c8c8d8 0%, #707090 100%);
+            --btn-primary-color: #08080e;
+            --scroll-btn-hover: #c8c8d8;
+            --tag-bg: rgba(200,200,216,0.1);
+            --intro-emblem-bg: rgba(80,80,112,0.5);
+            --intro-emblem-border: #c8c8d8;
+        }
+
+        /* Tema: Zümrüt (Derin Yeşil) */
+        [data-theme="emerald"] {
+            --primary: #50c878;
+            --primary-hover: #7fd99a;
+            --accent: #006040;
+            --bg-dark: rgba(4, 12, 8, 0.6);
+            --card-bg: rgba(6, 16, 10, 0.75);
+            --card-border: rgba(80, 200, 120, 0.28);
+            --text-main: #e8fff2;
+            --text-muted: #88b89a;
+            --body-bg: #030a06;
+            --header-bg: rgba(4, 12, 8, 0.5);
+            --overlay-bg: radial-gradient(circle at center, rgba(0,80,40,0.18) 0%, rgba(3,10,6,0.85) 100%);
+            --btn-primary-bg: linear-gradient(135deg, #50c878 0%, #208048 100%);
+            --btn-primary-color: #030a06;
+            --scroll-btn-hover: #50c878;
+            --tag-bg: rgba(80,200,120,0.1);
+            --intro-emblem-bg: rgba(0,96,64,0.6);
+            --intro-emblem-border: #50c878;
+        }
+
+        /* Tema: Ay Işığı (Derin Mor Gece) */
+        [data-theme="moonlight"] {
+            --primary: #a78bfa;
+            --primary-hover: #c4b0fc;
+            --accent: #5b21b6;
+            --bg-dark: rgba(8, 5, 16, 0.6);
+            --card-bg: rgba(12, 8, 22, 0.75);
+            --card-border: rgba(167, 139, 250, 0.28);
+            --text-main: #f0eeff;
+            --text-muted: #9d8fc8;
+            --body-bg: #060410;
+            --header-bg: rgba(8, 5, 16, 0.5);
+            --overlay-bg: radial-gradient(circle at center, rgba(90,33,182,0.18) 0%, rgba(6,4,16,0.88) 100%);
+            --btn-primary-bg: linear-gradient(135deg, #a78bfa 0%, #6030c0 100%);
+            --btn-primary-color: #060410;
+            --scroll-btn-hover: #a78bfa;
+            --tag-bg: rgba(167,139,250,0.12);
+            --intro-emblem-bg: rgba(91,33,182,0.6);
+            --intro-emblem-border: #a78bfa;
+        }
+
+        /* Tema: Kor Ateş (Turuncu Yanardağ) */
+        [data-theme="ember"] {
+            --primary: #ff7c38;
+            --primary-hover: #ffaa70;
+            --accent: #c43010;
+            --bg-dark: rgba(12, 5, 2, 0.6);
+            --card-bg: rgba(18, 7, 3, 0.75);
+            --card-border: rgba(255, 124, 56, 0.28);
+            --text-main: #fff4ee;
+            --text-muted: #c09080;
+            --body-bg: #0a0402;
+            --header-bg: rgba(12, 5, 2, 0.5);
+            --overlay-bg: radial-gradient(circle at center, rgba(196,48,16,0.2) 0%, rgba(10,4,2,0.88) 100%);
+            --btn-primary-bg: linear-gradient(135deg, #ff7c38 0%, #c03010 100%);
+            --btn-primary-color: #0a0402;
+            --scroll-btn-hover: #ff7c38;
+            --tag-bg: rgba(255,124,56,0.12);
+            --intro-emblem-bg: rgba(196,48,16,0.6);
+            --intro-emblem-border: #ff7c38;
+        }
+
+        /* Tema: Okyanus (Derin Deniz Mavisi) */
+        [data-theme="ocean"] {
+            --primary: #38bdf8;
+            --primary-hover: #7dd3fc;
+            --accent: #0369a1;
+            --bg-dark: rgba(2, 8, 18, 0.6);
+            --card-bg: rgba(4, 10, 24, 0.75);
+            --card-border: rgba(56, 189, 248, 0.28);
+            --text-main: #e0f4ff;
+            --text-muted: #7aabbf;
+            --body-bg: #020610;
+            --header-bg: rgba(2, 8, 18, 0.5);
+            --overlay-bg: radial-gradient(circle at center, rgba(3,105,161,0.2) 0%, rgba(2,6,16,0.88) 100%);
+            --btn-primary-bg: linear-gradient(135deg, #38bdf8 0%, #0369a1 100%);
+            --btn-primary-color: #020610;
+            --scroll-btn-hover: #38bdf8;
+            --tag-bg: rgba(56,189,248,0.12);
+            --intro-emblem-bg: rgba(3,105,161,0.6);
+            --intro-emblem-border: #38bdf8;
+        }
+
+        /* Tema: Kül (Soğuk Gri Çelik) */
+        [data-theme="ash"] {
+            --primary: #94a3b8;
+            --primary-hover: #cbd5e1;
+            --accent: #334155;
+            --bg-dark: rgba(6, 8, 10, 0.6);
+            --card-bg: rgba(10, 12, 16, 0.78);
+            --card-border: rgba(148, 163, 184, 0.22);
+            --text-main: #e2e8f0;
+            --text-muted: #8899aa;
+            --body-bg: #050708;
+            --header-bg: rgba(6, 8, 10, 0.5);
+            --overlay-bg: radial-gradient(circle at center, rgba(51,65,85,0.2) 0%, rgba(5,7,8,0.9) 100%);
+            --btn-primary-bg: linear-gradient(135deg, #94a3b8 0%, #475569 100%);
+            --btn-primary-color: #050708;
+            --scroll-btn-hover: #94a3b8;
+            --tag-bg: rgba(148,163,184,0.1);
+            --intro-emblem-bg: rgba(51,65,85,0.6);
+            --intro-emblem-border: #94a3b8;
+        }
+
+        /* ═══════════════════════════════════════
+           GENEL STILLER
+        ═══════════════════════════════════════ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            user-select: none;
+        }
+
+        body {
+            background: var(--body-bg) url('ayisik.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--overlay-bg);
+            z-index: -1;
+            transition: background 0.5s ease;
+        }
+
+        /* ═══════════════════════════════════════
+           INTRO OVERLAY (AY IŞIĞI VE RGB RAINBOW ATMOSFERİ)
+        ═══════════════════════════════════════ */
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(8, 5, 16, 0.62);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s;
+            padding: 0 20px;
+        }
+
+        #intro-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .intro-brand-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro-skip-btn {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .intro-skip-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .intro-emblem {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3.5px solid #ff0055;
+            background: radial-gradient(circle, rgba(255, 0, 85, 0.25) 0%, rgba(10, 8, 16, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 45px rgba(255, 0, 85, 0.8), 0 0 25px rgba(0, 200, 255, 0.7);
+            animation: 
+                introLogoSpinAndSlide 2.05s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+                rgbRainbowGlow 3s linear infinite;
+            z-index: 3;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .intro-emblem span {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff0055, #ff7700, #ffea00, #00ff88, #00c8ff, #b000ff, #ff0055);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rgbRainbowText 2.5s linear infinite;
+            filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.85));
+            display: inline-block;
+        }
+
+        .intro-divider-line {
+            width: 3px;
+            height: 120px;
+            background: linear-gradient(180deg, transparent 0%, #ff0055 25%, #00c8ff 50%, #b000ff 75%, transparent 100%);
+            box-shadow: 0 0 18px rgba(0, 200, 255, 0.8), 0 0 25px rgba(255, 0, 85, 0.6);
+            border-radius: 3px;
+            margin: 0 20px 0 22px;
+            z-index: 2;
+            flex-shrink: 0;
+            opacity: 0;
+            transform-origin: bottom center;
+            animation: introLineGrow 0.75s cubic-bezier(0.25, 1, 0.5, 1) 1.95s forwards;
+        }
+
+        .intro-text-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(-40px);
+            animation: introTextSmooth 0.95s cubic-bezier(0.22, 1, 0.36, 1) 2.35s forwards;
+        }
+
+        .intro-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(245, 242, 235, 0.3);
+        }
+
+        .intro-sub {
+            font-size: 1rem;
+            letter-spacing: 7px;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 4px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .intro-tag {
+            font-size: 0.65rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #fff;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--card-border);
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+            width: fit-content;
+            font-weight: 600;
+        }
+
+        .intro-motto {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        @keyframes introLogoSpinAndSlide {
+            0% {
+                transform: translateX(var(--intro-center-shift, 155px)) scale(0.15) rotate(0deg);
+                opacity: 0;
+            }
+            45% {
+                transform: translateX(var(--intro-center-shift, 155px)) scale(1.12) rotate(360deg);
+                opacity: 1;
+            }
+            60% {
+                transform: translateX(var(--intro-center-shift, 155px)) scale(1) rotate(360deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(0) scale(1) rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes introLineGrow {
+            0% { opacity: 0; transform: scaleY(0); }
+            100% { opacity: 1; transform: scaleY(1); }
+        }
+
+        @keyframes introTextSmooth {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* RGB Rainbow Logo Animasyonları (Glow & Metin Döngüsü) */
+        @keyframes rgbRainbowGlow {
+            0% {
+                border-color: #ff0055;
+                box-shadow: 0 0 35px rgba(255, 0, 85, 0.85), 0 0 70px rgba(255, 0, 85, 0.4), inset 0 0 25px rgba(255, 0, 85, 0.35);
+                background: radial-gradient(circle, rgba(255, 0, 85, 0.25) 0%, rgba(10, 8, 16, 0.8) 100%);
+            }
+            16.6% {
+                border-color: #ff7700;
+                box-shadow: 0 0 35px rgba(255, 119, 0, 0.85), 0 0 70px rgba(255, 119, 0, 0.4), inset 0 0 25px rgba(255, 119, 0, 0.35);
+                background: radial-gradient(circle, rgba(255, 119, 0, 0.25) 0%, rgba(10, 8, 16, 0.8) 100%);
+            }
+            33.3% {
+                border-color: #ffea00;
+                box-shadow: 0 0 35px rgba(255, 234, 0, 0.85), 0 0 70px rgba(255, 234, 0, 0.4), inset 0 0 25px rgba(255, 234, 0, 0.35);
+                background: radial-gradient(circle, rgba(255, 234, 0, 0.25) 0%, rgba(10, 8, 16, 0.8) 100%);
+            }
+            50% {
+                border-color: #00ff88;
+                box-shadow: 0 0 35px rgba(0, 255, 136, 0.85), 0 0 70px rgba(0, 255, 136, 0.4), inset 0 0 25px rgba(0, 255, 136, 0.35);
+                background: radial-gradient(circle, rgba(0, 255, 136, 0.25) 0%, rgba(10, 8, 16, 0.8) 100%);
+            }
+            66.6% {
+                border-color: #00c8ff;
+                box-shadow: 0 0 35px rgba(0, 200, 255, 0.85), 0 0 70px rgba(0, 200, 255, 0.4), inset 0 0 25px rgba(0, 200, 255, 0.35);
+                background: radial-gradient(circle, rgba(0, 200, 255, 0.25) 0%, rgba(10, 8, 16, 0.8) 100%);
+            }
+            83.3% {
+                border-color: #b000ff;
+                box-shadow: 0 0 35px rgba(176, 0, 255, 0.85), 0 0 70px rgba(176, 0, 255, 0.4), inset 0 0 25px rgba(176, 0, 255, 0.35);
+                background: radial-gradient(circle, rgba(176, 0, 255, 0.25) 0%, rgba(10, 8, 16, 0.8) 100%);
+            }
+            100% {
+                border-color: #ff0055;
+                box-shadow: 0 0 35px rgba(255, 0, 85, 0.85), 0 0 70px rgba(255, 0, 85, 0.4), inset 0 0 25px rgba(255, 0, 85, 0.35);
+                background: radial-gradient(circle, rgba(255, 0, 85, 0.25) 0%, rgba(10, 8, 16, 0.8) 100%);
+            }
+        }
+
+        @keyframes rgbRainbowText {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           HEADER
+        ═══════════════════════════════════════ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+            transition: background 0.5s ease, border-color 0.5s ease;
+            overflow: hidden;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .logo-emblem {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background: rgba(139, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+        }
+
+        .logo-emblem span {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .logo-text-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--text-main);
+            transition: transform 0.3s ease, color 0.3s ease;
+            line-height: 1.1;
+        }
+
+        .logo-sub {
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover .logo-emblem {
+            transform: rotate(360deg) scale(1.08);
+            border-color: #fff;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+        }
+
+        .logo:hover .logo-title { transform: translateX(4px); color: var(--primary); }
+        .logo:hover .logo-sub { opacity: 1; color: #fff; }
+
+        /* Nav Right Wrapper */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Desktop Nav */
+        nav.desktop-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+        }
+
+        nav.desktop-nav ul li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 7px 12px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        nav.desktop-nav ul li a:hover,
+        nav.desktop-nav ul li a.active {
+            color: var(--primary);
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--card-border);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Header Social Icons */
+        .header-socials {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 1px solid var(--card-border);
+            padding-left: 16px;
+        }
+
+        .header-social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--card-border);
+            background: rgba(18, 14, 11, 0.8);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-social-icon.wa:hover {
+            color: #25d366;
+            border-color: #25d366;
+            box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .header-social-icon.insta:hover {
+            color: #e6683c;
+            border-color: #e6683c;
+            box-shadow: 0 0 12px rgba(230, 104, 60, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Hamburger Toggle */
+        .mobile-toggle {
+            display: none;
+            font-size: 1.3rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            background: rgba(18, 14, 11, 0.85);
+            border: 1px solid var(--card-border);
+            flex-shrink: 0;
+        }
+
+        /* Mobile Drawer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: min(300px, 85vw);
+            height: 100vh;
+            height: 100dvh;
+            background: rgba(10, 8, 6, 0.98);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-left: 1px solid var(--card-border);
+            z-index: 999;
+            padding: 80px 24px 40px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+
+        .mobile-drawer.open { right: 0; }
+
+        .mobile-drawer a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mobile-drawer a:hover,
+        .mobile-drawer a.active {
+            color: var(--primary);
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--card-border);
+        }
+
+        .mobile-socials {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+            padding-top: 20px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ═══════════════════════════════════════
+           MAIN & PAGES
+        ═══════════════════════════════════════ */
+        main {
+            flex: 1;
+            margin-top: 70px;
+            padding: 32px 5% 40px 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 130px);
+        }
+
+        .page-view {
+            display: none;
+            width: 100%;
+            max-width: 1100px;
+            animation: fadeIn 0.45s ease forwards;
+        }
+
+        .page-view.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 14px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .page-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .page-badge {
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary);
+            padding: 5px 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            background: rgba(212, 175, 55, 0.08);
+            white-space: nowrap;
+        }
+
+        /* Hero Layout Grid */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 22px;
+            align-items: stretch;
+            margin-bottom: 50px;
+        }
+
+        .hero-text {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: background 0.5s ease, border-color 0.5s ease;
+        }
+
+        .hero-text h2 {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .hero-text h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+            line-height: 1.25;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+
+        .hero-text h1 span { color: var(--primary); }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 24px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            color: var(--btn-primary-color);
+            border: 1px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background: rgba(139, 0, 0, 0.2);
+            color: var(--text-main);
+            border: 1px solid rgba(139, 0, 0, 0.6);
+        }
+
+        .btn-outline:hover {
+            background: rgba(139, 0, 0, 0.4);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Right Column Grid Stack */
+        .hero-right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            justify-content: space-between;
+        }
+
+        .hero-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 26px 22px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card:hover { border-color: var(--primary); }
+
+        .hero-card-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .hero-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .hero-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        /* Projects */
+        .projects-section {
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 30px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 22px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .projects-grid {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .project-card.detlab-card {
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 35px 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            width: 100%;
+            max-width: 500px;
+            min-height: 230px;
+            margin: 0 auto;
+            background: #120e0b;
+        }
+
+        .project-card.detlab-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('detlabarkaplan.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: 1;
+        }
+
+        .project-card.detlab-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(18, 14, 11, 0.75) 0%, rgba(10, 8, 6, 0.92) 100%);
+            backdrop-filter: blur(2px);
+            z-index: 2;
+        }
+
+        .project-card.detlab-card .detlab-top-line {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            z-index: 4;
+        }
+
+        .project-card.detlab-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.25);
+        }
+
+        .project-card-content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+        }
+
+        .project-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .project-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--card-border);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: var(--primary);
+            color: #0c0a09;
+            border-color: var(--primary);
+        }
+
+        /* Packages */
+        .packages-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px 26px;
+            width: 100%;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: var(--btn-primary-bg);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .pricing-header {
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 18px;
+            margin-bottom: 18px;
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 10px;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card p.subtitle {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .price-val {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .price-unit {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .features-wrapper { margin-bottom: 22px; }
+
+        .features-title {
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-main);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .features-list li i {
+            color: var(--primary);
+            font-size: 0.82rem;
+            background: rgba(212, 175, 55, 0.1);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid var(--card-border);
+            margin-top: 1px;
+        }
+
+        .pricing-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 13px;
+            background: var(--btn-primary-bg);
+            color: var(--btn-primary-color);
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+            opacity: 0.92;
+        }
+
+        /* Bilgilendirme Bannerı */
+        .quote-notice-banner {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            backdrop-filter: blur(10px);
+        }
+
+        .quote-notice-banner i {
+            font-size: 1.4rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .quote-notice-banner p {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .quote-notice-banner a {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .price-subnote {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            color: var(--primary);
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        /* Hızlı Teklif Hesaplayıcı Kartı */
+        .quote-calculator-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px 24px;
+            width: 100%;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quote-calculator-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, #25d366 0%, var(--primary) 100%);
+        }
+
+        .quote-calculator-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .quote-calc-header {
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+
+        .calc-badge {
+            display: inline-block;
+            background: rgba(37, 211, 102, 0.12);
+            color: #25d366;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .quote-calculator-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .quote-calculator-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.45;
+        }
+
+        .quote-calc-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group label i {
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .quote-input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: rgba(10, 8, 6, 0.7);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            font-size: 0.88rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .quote-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+            background: rgba(18, 14, 11, 0.9);
+        }
+
+        .quote-input option {
+            background: #120e0b;
+            color: #f5f2eb;
+            padding: 10px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 2px;
+        }
+
+        .check-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            border-radius: 6px;
+            padding: 7px 10px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .check-label:hover {
+            background: rgba(212, 175, 55, 0.08);
+            color: var(--text-main);
+            border-color: var(--card-border);
+        }
+
+        .check-label input[type="checkbox"] {
+            accent-color: var(--primary);
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        .quote-submit-btn {
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 13px;
+            background: var(--wa-gradient);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .quote-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+            filter: brightness(1.1);
+        }
+
+        /* ═══════════════════════════════════════
+           NEDEN BİZ? / AVANTAJLAR BÖLÜMÜ
+        ═══════════════════════════════════════ */
+        .advantages-section {
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .advantage-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 26px 20px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .advantage-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.18);
+        }
+
+        .advantage-card:hover::before {
+            opacity: 1;
+        }
+
+        .adv-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            flex-shrink: 0;
+        }
+
+        .advantage-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            letter-spacing: 0.8px;
+        }
+
+        .advantage-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════
+           3 ADIMDA ÇALIŞMA SÜRECİ
+        ═══════════════════════════════════════ */
+        .process-section {
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        .process-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 30px 22px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .process-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 18px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .process-num {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            opacity: 0.25;
+            letter-spacing: 2px;
+        }
+
+        .process-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1.5px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 18px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .process-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .process-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════
+           ANA SAYFA ALTI CTA BANNERI
+        ═══════════════════════════════════════ */
+        .cta-banner {
+            margin-top: 55px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(18, 14, 11, 0.95) 0%, rgba(30, 20, 15, 0.9) 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px 32px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 50%, var(--accent) 100%);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 14px;
+        }
+
+        .cta-banner h3 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .cta-banner p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 26px;
+        }
+
+        .cta-btn-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 26px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn.wa-cta {
+            background: var(--wa-gradient);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+        }
+
+        .cta-btn.wa-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .cta-btn.quote-cta {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .cta-btn.quote-cta:hover {
+            background: var(--primary);
+            color: #0c0a09;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+        }
+
+        /* ═══════════════════════════════════════
+           SIKÇA SORULAN SORULAR (FAQ)
+        ═══════════════════════════════════════ */
+        .faq-section {
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15);
+        }
+
+        .faq-question {
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text-main);
+            gap: 16px;
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+
+        .faq-question span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-question i.faq-icon-q {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .faq-arrow {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: transform 0.3s ease, color 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
+            padding: 0 22px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 22px 18px 22px;
+            border-top-color: rgba(212, 175, 55, 0.15);
+        }
+
+        /* ═══════════════════════════════════════
+           MÜZİK ÇALAR WIDGET'I
+        ═══════════════════════════════════════ */
+        .music-player-wrap {
+            position: fixed;
+            bottom: 28px;
+            left: 70px;
+            z-index: 997;
+            display: flex;
+            align-items: center;
+        }
+
+        .music-toggle-btn {
+            height: 38px;
+            padding: 0 14px 0 12px;
+            border-radius: 20px;
+            background: rgba(12, 10, 9, 0.88);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            user-select: none;
+        }
+
+        .music-toggle-btn:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+            transform: scale(1.03);
+        }
+
+        .music-toggle-btn.playing {
+            border-color: var(--primary);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.35);
+        }
+
+        .music-wave-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 14px;
+        }
+
+        .music-bar {
+            width: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+            height: 3px;
+            transition: height 0.2s ease;
+        }
+
+        .music-toggle-btn.playing .music-bar:nth-child(1) {
+            animation: musicWave 0.8s ease-in-out infinite alternate;
+        }
+        .music-toggle-btn.playing .music-bar:nth-child(2) {
+            animation: musicWave 1.1s ease-in-out infinite 0.2s alternate;
+        }
+        .music-toggle-btn.playing .music-bar:nth-child(3) {
+            animation: musicWave 0.7s ease-in-out infinite 0.4s alternate;
+        }
+        .music-toggle-btn.playing .music-bar:nth-child(4) {
+            animation: musicWave 0.9s ease-in-out infinite 0.1s alternate;
+        }
+
+        @keyframes musicWave {
+            0% { height: 3px; }
+            100% { height: 14px; }
+        }
+
+        .music-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .music-toggle-btn.playing .music-label {
+            color: var(--text-main);
+        }
+
+        .music-label strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(37, 211, 102, 0.12);
+            color: #25d366;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(37, 211, 102, 0.25);
+            margin-bottom: 10px;
+        }
+
+        /* Social Cards */
+        .insta-card, .wa-custom-card {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .insta-card { background-image: url('instagramkutucuk.jpg'); }
+        .wa-custom-card { background-image: url('whatsappkutucuk.jpg'); }
+
+        .insta-card::after, .wa-custom-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(18, 14, 11, 0.5) 0%, rgba(12, 10, 9, 0.88) 80%);
+            backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+
+        .insta-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--insta-gradient);
+            z-index: 3;
+        }
+
+        .wa-custom-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--wa-gradient);
+            z-index: 3;
+        }
+
+        .card-inner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .insta-card:hover, .wa-custom-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            padding: 2px;
+            background: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .wa-custom-card .avatar-wrapper { background: var(--wa-gradient); }
+        .insta-card .avatar-wrapper { background: var(--insta-gradient); }
+
+        .avatar-box {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #120e0b;
+            background: #1e1512;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            overflow: hidden;
+        }
+
+        .avatar-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .user-info { display: flex; flex-direction: column; }
+
+        .user-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .user-handle {
+            font-size: 0.88rem;
+            color: #25d366;
+            font-weight: 600;
+        }
+
+        .insta-handle { color: #e6683c; }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .insta-btn {
+            background: var(--insta-gradient);
+            box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
+        }
+
+        .wa-btn {
+            background: var(--wa-gradient);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .action-btn:hover { opacity: 0.92; transform: scale(1.02); }
+
+        /* Card Box */
+        .card-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 36px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            margin-bottom: 22px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.45rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+        }
+
+        .card-box p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 0.97rem;
+            margin-bottom: 14px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            background: var(--tag-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 5px 13px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 32px 22px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 18px;
+        }
+
+        .service-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        .service-card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 32px 22px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card.phone-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--phone-gradient);
+            z-index: 3;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+        }
+
+        .contact-card i { font-size: 2.1rem; color: var(--primary); margin-bottom: 14px; }
+
+        .contact-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p { font-size: 1.05rem; font-weight: 600; }
+
+        /* Scroll to Top */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 42px;
+            height: 42px;
+            background: rgba(18, 14, 11, 0.85);
+            border: 1px solid var(--card-border);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 996;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .scroll-top-btn.show { opacity: 1; visibility: visible; }
+
+        .scroll-top-btn:hover {
+            background: var(--scroll-btn-hover);
+            color: #0c0a09;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            height: 56px;
+            background: rgba(10, 8, 6, 0.95);
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* ═══════════════════════════════════════
+           TEMA SEÇİCİ
+        ═══════════════════════════════════════ */
+        .theme-picker-wrap {
+            position: fixed;
+            bottom: 28px;
+            left: 20px;
+            z-index: 997;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        /* Tema paneli */
+        .theme-panel {
+            background: rgba(12, 10, 9, 0.92);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 12px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transform-origin: bottom left;
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+        }
+
+        .theme-panel.open {
+            transform: scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .theme-panel-title {
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            padding: 0 2px 4px 2px;
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 2px;
+        }
+
+        .theme-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 10px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .theme-option:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: var(--card-border);
+        }
+
+        .theme-option.active-theme {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--card-border);
+        }
+
+        .theme-swatch {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.2);
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-swatch::after {
+            content: '';
+            position: absolute;
+            right: 0; top: 0;
+            width: 50%; height: 100%;
+        }
+
+        .theme-option-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .theme-active-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            margin-left: auto;
+            flex-shrink: 0;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .theme-option.active-theme .theme-active-dot { opacity: 1; }
+
+        /* Tema aç/kapat butonu */
+        .theme-toggle-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(12, 10, 9, 0.88);
+            border: 1px solid var(--card-border);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE — TABLET (900px)
+        ═══════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-right-col {
+                flex-direction: row;
+            }
+
+            .packages-grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE — MOBILE (768px)
+        ═══════════════════════════════════════ */
+        @media (max-width: 768px) {
+            header {
+                padding: 0 16px 0 16px;
+                height: 64px;
+            }
+
+            nav.desktop-nav { display: none; }
+            .header-socials { display: none; }
+
+            .mobile-toggle { display: flex; }
+
+            main {
+                margin-top: 64px;
+                padding: 20px 16px 30px 16px;
+                min-height: calc(100vh - 120px);
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-bottom: 32px;
+            }
+
+            .hero-right-col {
+                flex-direction: row;
+                gap: 14px;
+            }
+
+            .hero-text {
+                padding: 26px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-card {
+                padding: 20px 14px;
+            }
+
+            .hero-card h3 {
+                font-size: 0.95rem;
+            }
+
+            .hero-card p {
+                font-size: 0.82rem;
+            }
+
+            .hero-card-icon {
+                font-size: 1.8rem;
+            }
+
+            .card-box {
+                padding: 22px 18px;
+            }
+
+            .pricing-card {
+                padding: 26px 18px;
+            }
+
+            .price-val {
+                font-size: 2.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .packages-grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+            }
+
+            .scroll-top-btn {
+                bottom: 18px;
+                right: 18px;
+                width: 38px;
+                height: 38px;
+            }
+
+            .theme-picker-wrap {
+                bottom: 18px;
+                left: 14px;
+            }
+
+            .theme-toggle-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 0.9rem;
+            }
+
+            :root {
+                --intro-center-shift: 98px;
+            }
+
+            .music-player-wrap {
+                bottom: 18px;
+                left: 56px;
+            }
+
+            .music-toggle-btn {
+                height: 34px;
+                padding: 0 10px;
+                font-size: 0.72rem;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                height: auto;
+                padding: 14px 5%;
+                font-size: 0.78rem;
+            }
+
+            /* Mobilde Intro Ölçeklendirmesi */
+            .intro-emblem {
+                width: 72px;
+                height: 72px;
+            }
+
+            .intro-emblem span {
+                font-size: 2rem;
+            }
+
+            .intro-divider-line {
+                height: 85px;
+                margin: 0 12px 0 14px;
+            }
+
+            .intro-title {
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+
+            .intro-sub {
+                font-size: 0.65rem;
+                letter-spacing: 4px;
+            }
+
+            .intro-tag {
+                font-size: 0.52rem;
+                padding: 2px 6px;
+                letter-spacing: 1.5px;
+            }
+
+            .intro-motto {
+                font-size: 0.58rem;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE — KÜÇÜK MOBILE (480px)
+        ═══════════════════════════════════════ */
+        @media (max-width: 480px) {
+            :root {
+                --intro-center-shift: 84px;
+            }
+
+            .music-label {
+                display: none;
+            }
+
+            .logo-title {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .logo-sub {
+                letter-spacing: 2px;
+            }
+
+            .hero-right-col {
+                flex-direction: column;
+            }
+
+            .intro-brand-wrapper {
+                transform: scale(0.85);
+                transform-origin: center;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+                gap: 8px;
+            }
+
+            .page-title {
+                font-size: 1.2rem;
+            }
+
+            .theme-panel {
+                max-width: calc(100vw - 60px);
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE — ÇOK KÜÇÜK (360px)
+        ═══════════════════════════════════════ */
+        @media (max-width: 360px) {
+            header { padding: 0 12px; }
+            main { padding: 16px 12px 24px 12px; }
+
+            .logo-text-box { display: none; }
+
+            .logo-emblem {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           SİNEMATİK EDİT / AKICI VE ULTRA-SMOOTH GİRİŞ ANİMASYONLARI
+        ═══════════════════════════════════════ */
+        body.cinema-pre header,
+        body.cinema-pre .hero-text,
+        body.cinema-pre .hero-card,
+        body.cinema-pre .projects-section,
+        body.cinema-pre .advantages-section,
+        body.cinema-pre .theme-picker-wrap,
+        body.cinema-pre .music-player-wrap {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ── NAVBAR IŞIK HÜZMESİ & LAZER PARILTISI ── */
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -80%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(212, 175, 55, 0.08) 20%,
+                rgba(212, 175, 55, 0.45) 45%,
+                rgba(255, 255, 255, 0.95) 50%,
+                rgba(212, 175, 55, 0.45) 55%,
+                rgba(212, 175, 55, 0.08) 80%,
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            pointer-events: none;
+            opacity: 0;
+            z-index: 25;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6), 0 0 15px #ffffff;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -50%;
+            width: 45%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), #ffffff, rgba(212, 175, 55, 0.6), transparent);
+            box-shadow: 0 0 12px #d4af37, 0 0 20px #ffffff;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 26;
+        }
+
+        /* Sinematik Açılışta Navbar Işığının Akıcı & Kontrollü Hızda Kayması */
+        body.cinema-active header::after {
+            animation: navbarBeamSweep 1.7s cubic-bezier(0.25, 1, 0.35, 1) 0.25s forwards;
+        }
+
+        body.cinema-active header::before {
+            animation: navbarLineSweep 1.7s cubic-bezier(0.25, 1, 0.35, 1) 0.25s forwards;
+        }
+
+        @keyframes navbarBeamSweep {
+            0% {
+                left: -80%;
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.95;
+            }
+            85% {
+                opacity: 0.95;
+            }
+            100% {
+                left: 150%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes navbarLineSweep {
+            0% {
+                left: -50%;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                left: 140%;
+                opacity: 0;
+            }
+        }
+
+        /* ── AKTİF ÖĞELERİN YAVAŞ, İPEKSİ VE KASILMASIZ YERLEŞİMİ ── */
+        body.cinema-active header,
+        body.cinema-active .hero-text,
+        body.cinema-active .hero-card,
+        body.cinema-active .projects-section,
+        body.cinema-active .detlab-card,
+        body.cinema-active .advantages-section,
+        body.cinema-active .advantage-card,
+        body.cinema-active .theme-picker-wrap,
+        body.cinema-active .music-player-wrap {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        /* 1. Header: Tavandan Yumuşakça ve Ağırbaşlı İner */
+        body.cinema-active header {
+            animation: cinemaSmoothDown 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+        }
+
+        /* 2. Hero Sol Metin: Soldan Akıcı ve Ağırbaşlı Kayar */
+        body.cinema-active .hero-text {
+            animation: cinemaSmoothFromLeft 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
+        }
+
+        /* 3. Hero Sağ Kartlar: Aşağıdan Zarifçe Yukarı Oturur */
+        body.cinema-active .hero-right-col .hero-card:nth-child(1) {
+            animation: cinemaSmoothFromBottom 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+        }
+
+        body.cinema-active .hero-right-col .hero-card:nth-child(2) {
+            animation: cinemaSmoothFromBottom 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.46s forwards;
+        }
+
+        /* 4. Detlab Canlı Proje Kartı */
+        body.cinema-active .projects-section {
+            animation: cinemaSmoothFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.58s forwards;
+        }
+
+        body.cinema-active .detlab-card {
+            animation: cinemaSmoothFromBottom 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+        }
+
+        /* 5. Neden Veli Studio Avantaj Bölümü */
+        body.cinema-active .advantages-section {
+            animation: cinemaSmoothFromBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.72s forwards;
+        }
+
+        body.cinema-active .advantages-grid .advantage-card:nth-child(1) {
+            animation: cinemaSmoothCard 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.78s forwards;
+        }
+        body.cinema-active .advantages-grid .advantage-card:nth-child(2) {
+            animation: cinemaSmoothCard 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.88s forwards;
+        }
+        body.cinema-active .advantages-grid .advantage-card:nth-child(3) {
+            animation: cinemaSmoothCard 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.98s forwards;
+        }
+        body.cinema-active .advantages-grid .advantage-card:nth-child(4) {
+            animation: cinemaSmoothCard 1.15s cubic-bezier(0.16, 1, 0.3, 1) 1.08s forwards;
+        }
+
+        /* 6. Sol Alt Kontroller (Tema & Müzik) */
+        body.cinema-active .theme-picker-wrap {
+            animation: cinemaSmoothControl 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.52s forwards;
+        }
+
+        body.cinema-active .music-player-wrap {
+            animation: cinemaSmoothControl 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.64s forwards;
+        }
+
+        /* ── GPU DONANIM HIZLANDIRMALI BUTTERY-SMOOTH KEYFRAME TANIMLARI ── */
+        @keyframes cinemaSmoothDown {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, -32px, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes cinemaSmoothFromLeft {
+            0% {
+                opacity: 0;
+                transform: translate3d(-35px, 0, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes cinemaSmoothFromBottom {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 32px, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes cinemaSmoothCard {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 24px, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes cinemaSmoothControl {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 22px, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* ── YERLEŞİM TAMAMLANDIKTAN SONRA SABİTLEME (SIFIR KASMA, SIFIR TİTREME) ── */
+        body.cinema-settled header,
+        body.cinema-settled .hero-text,
+        body.cinema-settled .hero-card,
+        body.cinema-settled .projects-section,
+        body.cinema-settled .advantages-section,
+        body.cinema-settled .theme-picker-wrap,
+        body.cinema-settled .music-player-wrap {
+            opacity: 1;
+            transform: none;
+            will-change: auto;
+        }
+    </style>
+</head>
+<body class="cinema-pre">
+
+    <!-- Arka Plan Site Müziği -->
+    <audio id="siteMusic" src="sitemüzik.mp3" loop preload="auto"></audio>
+
+    <!-- SİNEMATİK INTRO OVERLAY -->
+    <div id="intro-overlay">
+        <button class="intro-skip-btn" onclick="skipIntro()">Geç <i class="fas fa-forward"></i></button>
+        <div class="intro-brand-wrapper">
+            <div class="intro-emblem">
+                <span>隻</span>
+            </div>
+            <div class="intro-divider-line"></div>
+            <div class="intro-text-box">
+                <span class="intro-title">VELİ</span>
+                <span class="intro-sub">STUDIO</span>
+                <span class="intro-tag">WEB TASARIM &amp; GELİŞTİRME</span>
+                <span class="intro-motto">Dijital Varlığınızı Şekillendiriyoruz</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Navigation Header -->
+    <header>
+        <a href="#" class="logo" onclick="switchPage('home')">
+            <div class="logo-emblem">
+                <span>隻</span>
+            </div>
+            <div class="logo-text-box">
+                <span class="logo-title">VELİ</span>
+                <span class="logo-sub">STUDIO</span>
+            </div>
+        </a>
+
+        <div class="header-right">
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a id="nav-home" class="active" onclick="switchPage('home')">Ana Sayfa</a></li>
+                    <li><a id="nav-about" onclick="switchPage('about')">Hakkımda</a></li>
+                    <li><a id="nav-services" onclick="switchPage('services')">Hizmetler</a></li>
+                    <li><a id="nav-quote" onclick="switchPage('quote')">Paketler</a></li>
+                    <li><a id="nav-contact" onclick="switchPage('contact')">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header Social Icons -->
+            <div class="header-socials">
+                <a href="https://wa.me/905546682909" target="_blank" class="header-social-icon wa" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/veli.vz" target="_blank" class="header-social-icon insta" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="mobile-toggle" id="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Mobile Slide Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a id="mob-home" class="active" onclick="switchPage('home')"><i class="fas fa-home"></i>Ana Sayfa</a>
+        <a id="mob-about" onclick="switchPage('about')"><i class="fas fa-user"></i>Hakkımda</a>
+        <a id="mob-services" onclick="switchPage('services')"><i class="fas fa-code"></i>Hizmetler</a>
+        <a id="mob-quote" onclick="switchPage('quote')"><i class="fas fa-tags"></i>Paketler</a>
+        <a id="mob-contact" onclick="switchPage('contact')"><i class="fas fa-envelope"></i>İletişim</a>
+        
+        <div class="mobile-socials">
+            <a href="https://wa.me/905546682909" target="_blank" class="header-social-icon wa">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com/veli.vz" target="_blank" class="header-social-icon insta">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <!-- Main Dynamic Views -->
+    <main>
+        
+        <!-- HOME PAGE VIEW -->
+        <div id="page-home" class="page-view active">
+            <div class="hero-grid">
+                <!-- Left Column -->
+                <div class="hero-text">
+                    <h2>WEB STUDYO</h2>
+                    <h1>Prestijli &amp; Modern Web Çözümleri</h1>
+                    <p>Modern teknolojiler kullanarak kullanıcı dostu, performanslı ve estetik web projeleri inşa ediyorum. Dijital dünyadaki varlığınızı profesyonelce hayata geçirelim.</p>
+                    <div class="btn-group">
+                        <a class="btn btn-primary" onclick="switchPage('quote')">
+                            <i class="fas fa-tags"></i> Paketleri İncele
+                        </a>
+                        <a class="btn btn-outline" onclick="switchPage('contact')">
+                            <i class="fas fa-paper-plane"></i> İletişime Geç
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column Stack -->
+                <div class="hero-right-col">
+                    <div class="hero-card">
+                        <div class="hero-card-icon">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h3>HİZMET KALİTESİ</h3>
+                        <p>Sıfır hata, maksimum hız ve özgün tasarımlarla geliştirilmiş web projeleri.</p>
+                    </div>
+
+                    <div class="hero-card">
+                        <div class="hero-card-icon">
+                            <i class="fa-solid fa-spider"></i>
+                        </div>
+                        <h3>DİJİTAL VİZYON</h3>
+                        <p>Dijital dünyada iz bırakın, projelerinizi birlikte büyütelim.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yaptığım Web Siteleri Bölümü -->
+            <div class="projects-section">
+                <div class="section-title">
+                    <i class="fas fa-laptop-code"></i> Yaptığım Web Siteleri
+                </div>
+                <div class="projects-grid">
+                    <!-- Detlab Elektronik Kartı -->
+                    <div class="project-card detlab-card">
+                        <div class="detlab-top-line"></div>
+                        <div class="project-card-content">
+                            <div>
+                                <div class="project-badge">
+                                    <i class="fas fa-certificate"></i> Öne Çıkan Canlı Referans
+                                </div>
+                                <div class="project-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <h3>Detlab Elektronik</h3>
+                                <p>Elektronik ve baskı devre (PCB) tasarımı alanında faaliyet gösteren girişim için geliştirilen resmi kurumsal tanıtım platformu. Yüksek hızlı, mobil uyumlu ve modern vitrin tasarımı.</p>
+                            </div>
+                            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+                                <a href="https://detlabelektronik.netlify.app" target="_blank" class="project-link" style="flex:1;">
+                                    <i class="fas fa-external-link-alt"></i> Canlı Siteyi İncele
+                                </a>
+                                <a onclick="switchPage('quote')" class="project-link" style="flex:1; background:rgba(37,211,102,0.15); color:#25d366; border-color:rgba(37,211,102,0.3); cursor:pointer;">
+                                    <i class="fas fa-tags"></i> Benzer Site Teklifi Al
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Neden Veli Studio? (Avantajlar / Güven Kartları) -->
+            <div class="advantages-section">
+                <div class="section-title">
+                    <i class="fas fa-gem"></i> Neden Veli Studio?
+                </div>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="adv-icon"><i class="fas fa-bolt"></i></div>
+                        <h4>Işık Hızında &amp; Donmayan Altyapı</h4>
+                        <p>Gereksiz kod yığınlarından arındırılmış, anında açılan ve Google hız testlerinden tam not alan modern kurumsal altyapı.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="adv-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                        <h4>%100 Mobil &amp; Tablet Uyumu</h4>
+                        <p>Müşterilerinizin en çok kullandığı akıllı telefonlarda (iPhone &amp; Android) kusursuz, akıcı ve responsive görüntüleme.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="adv-icon"><i class="fab fa-whatsapp"></i></div>
+                        <h4>Doğrudan Müşteri İletişimi</h4>
+                        <p>Ziyaretçileri bekletmeden tek tıkla doğrudan WhatsApp hattınıza veya telefonunuza yönlendiren dönüşüm butonları.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="adv-icon"><i class="fas fa-award"></i></div>
+                        <h4>Veli STUDIO Kalitesinde Prestij</h4>
+                        <p>İşletmenizi rakiplerinizden ayıran kurumsal, profesyonel, güven veren ve müşteri kazandıran özgün vitrin tasarımı.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Adımda Kolay Süreç -->
+            <div class="process-section">
+                <div class="section-title">
+                    <i class="fas fa-route"></i> 3 Adımda Web Siteniz Hazır
+                </div>
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-num">01</div>
+                        <div class="process-icon"><i class="fas fa-comments"></i></div>
+                        <h4>İhtiyaç Analizi &amp; Planlama</h4>
+                        <p>İşletmenizi ve beklentilerinizi dinliyor, size en uygun sayfa yapısını, renk temasını ve içerik akışını belirliyoruz.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-num">02</div>
+                        <div class="process-icon"><i class="fas fa-code"></i></div>
+                        <h4>Tasarım &amp; Mobil Kodlama</h4>
+                        <p>Veli STUDIO kalitesinde modern arayüzü kodluyor, onayınıza sunarak revizyonları ve detayları birlikte tamamlıyoruz.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-num">03</div>
+                        <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                        <h4>Canlıya Alma &amp; Teslimat</h4>
+                        <p>Alan adınızı bağlayıp sitenizi güvenli ve yüksek hızlı sunucularda yayına alıyoruz. Anahtar teslim teslimat!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sıkça Sorulan Sorular (S.S.S.) -->
+            <div class="faq-section">
+                <div class="section-title">
+                    <i class="fas fa-circle-question"></i> Sıkça Sorulan Sorular
+                </div>
+                <div class="faq-accordion">
+                    <!-- Soru 1 -->
+                    <div class="faq-item active" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-question-circle faq-icon-q"></i> Ne tür web siteleri geliştiriyorsunuz?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Detlab Elektronik referansımızda gördüğünüz gibi; firmaların, atölyelerin, hizmet sektöründeki ustaların ve girişimlerin dijital dünyada prestij kazanmasını sağlayan modern kurumsal tanıtım, portföy ve açılış (vitrin) siteleri inşa ediyorum. Sepetli ve online ödemeli e-ticaret siteleri yapmıyorum; amacım doğrudan işletmenize müşteri kazandıran şık ve hızlı bir dijital kimlik sunmaktır.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 2 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-clock faq-icon-q"></i> Web sitem ne kadar sürede tamamlanır?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>İçerik ve görselleriniz netleştikten sonra ortalama <strong>3 ila 5 iş günü</strong> içerisinde siteniz tamamlanıp onayınıza sunulur ve yayına hazır hale getirilir.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 3 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-mobile-alt faq-icon-q"></i> Sitem cep telefonlarında ve tabletlerde düzgün çalışır mı?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kesinlikle evet! Tüm tasarımlarım %100 mobil uyumlu (Responsive) olarak geliştirilir. iPhone, Android telefonlar, tabletler ve bilgisayarlarda kusursuz, donmayan ve akıcı bir deneyim sağlar.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 4 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-search faq-icon-q"></i> Google'da (Arama Motorlarında) çıkacak mıyım?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet. Siteniz temel SEO kurallarına, semantik HTML etiketlerine ve Google'ın arama botlarının kolayca indeksleyebileceği hızlı altyapıya uygun olarak kodlanır.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 5 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-server faq-icon-q"></i> Hosting ve alan adı (domain) desteği sağlıyor musunuz?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet. Sitenizin Netlify gibi modern, dünya standardında hızlı ve güvenli sunucularda ücretsiz barındırılması ve alan adınızın bağlanması sürecinde baştan sona tam teknik destek sağlıyorum.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 6 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-headset faq-icon-q"></i> Teslimat sonrasında destek ve güncelleme alabilir miyim?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Elbette. Proje tesliminden sonra da doğrudan WhatsApp veya telefon üzerinden bana ulaşabilir, teknik destek ve güncelleme taleplerinizi güvenle iletebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ana Sayfa Altı Hızlı Teklif CTA Bannerı -->
+            <div class="cta-banner">
+                <div class="cta-content">
+                    <span class="cta-badge"><i class="fas fa-fire"></i> Fırsat</span>
+                    <h3>İşletmenizi Veli STUDIO Kalitesinde Dijitale Taşımaya Hazır mısınız?</h3>
+                    <p>Siz de firmanız, atölyeniz veya hizmetleriniz için müşteri kazandıran prestijli bir web sitesine sahip olun. Hemen görüşelim!</p>
+                    <div class="cta-btn-group">
+                        <a href="https://wa.me/905546682909?text=Merhaba%20Veli%20Bey,%20web%20sitem%20için%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" class="cta-btn wa-cta">
+                            <i class="fab fa-whatsapp"></i> WhatsApp'tan Hemen Yazın
+                        </a>
+                        <a onclick="switchPage('quote')" class="cta-btn quote-cta">
+                            <i class="fas fa-tags"></i> Paket ve Teklif Detayları
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE VIEW -->
+        <div id="page-about" class="page-view">
+            <div class="page-header">
+                <div class="page-title">
+                    <i class="fas fa-user"></i> HAKKIMDA
+                </div>
+                <div class="page-badge">BİYOGRAFİ</div>
+            </div>
+
+            <div class="card-box">
+                <h3>Veli Salaraslan</h3>
+                <p>Web tasarımı ve yazılım geliştirme alanında uzmanlaşmış bir web geliştiriciyim. Projelerimde detaylara yüksek odaklanma, temiz kodlama ve sürekli gelişimi esas alıyorum.</p>
+                <p>Sadece görsel olarak şık değil; mobil uyumlu (responsive), SEO dostu ve hızlı açılan web siteleri inşa ediyorum. Amacım dijital ortamda rakiplerinizden sıyrılmanızı sağlamak.</p>
+
+                <div class="skill-tags">
+                    <span class="tag">Web Tasarım</span>
+                    <span class="tag">HTML5 &amp; CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Responsive Mobil Uyum</span>
+                    <span class="tag">SEO Optimizasyonu</span>
+                    <span class="tag">UI/UX Tasarım</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICES PAGE VIEW -->
+        <div id="page-services" class="page-view">
+            <div class="page-header">
+                <div class="page-title">
+                    <i class="fas fa-code"></i> HİZMETLER
+                </div>
+                <div class="page-badge">ÇÖZÜMLER</div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h4>Web Tasarım &amp; Geliştirme</h4>
+                    <p>İhtiyaçlarınıza özel, modern standartlara uygun, hızlı ve yüksek kaliteli web siteleri tasarlıyorum.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-screen"></i>
+                    </div>
+                    <h4>Mobil Uyumlu (Responsive)</h4>
+                    <p>Tüm mobil cihazlarda, tabletlerde ve masaüstü ekranlarda tam uyum sağlayan esnek tasarımlar hazırlıyorum.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gauge-high"></i>
+                    </div>
+                    <h4>Hız &amp; SEO Optimizasyonu</h4>
+                    <p>Arama motorlarında üst sıralara çıkmanız için yüksek performanslı ve hızlı açılan altyapılar oluşturuyorum.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAKETLER PAGE VIEW -->
+        <div id="page-quote" class="page-view">
+            <div class="page-header">
+                <div class="page-title">
+                    <i class="fas fa-box-open"></i> PAKETLER &amp; TEKLİF
+                </div>
+                <div class="page-badge">SABİT FİYAT &amp; HIZLI TEKLİF</div>
+            </div>
+
+            <!-- Bilgilendirme Kutusu: Hizmet Alanı & Detlab Tarzı Netliği -->
+            <div class="quote-notice-banner">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                    <strong>Hizmet Kapsamı:</strong> İşletmeler, atölyeler, ustalar, firmalar ve kurumsal girişimler için <a href="https://detlabelektronik.netlify.app" target="_blank">Detlab Elektronik</a> referansında Veli STUDIO kalitesinde modern, prestijli ve müşteri kazandıran <strong>tanıtım ve vitrin siteleri</strong> geliştiriyorum. <em>(E-ticaret / online satış sitesi yapılmamaktadır.)</em>
+                </p>
+            </div>
+
+            <div class="packages-grid-container">
+                <!-- Sol Taraf: Kurumsal Web Sitesi Paketi (1 Tek Paket) -->
+                <div class="pricing-card">
+                    <div>
+                        <div class="pricing-header">
+                            <span class="pricing-badge"><i class="fas fa-star"></i> Ana Paket</span>
+                            <h3>Kurumsal Tanıtım Web Sitesi</h3>
+                            <p class="subtitle">İşletmenizi dijital dünyada Veli STUDIO kalitesinde kurumsal, güvenilir ve prestijli gösteren anahtar teslim web çözümü.</p>
+                            <div class="price-box">
+                                <span class="price-val">4.500</span>
+                                <span class="price-unit">TL / Tek Seferlik</span>
+                            </div>
+                            <span class="price-subnote"><i class="fas fa-shield-alt"></i> Gizli ücret yok, şeffaf sabit fiyat</span>
+                        </div>
+
+                        <div class="features-wrapper">
+                            <span class="features-title">Pakete Dahil Olan Hizmetler</span>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check"></i> <span><strong>Özel &amp; Kurumsal Tasarım:</strong> Markanızı üst seviyeye taşıyan modern, estetik arayüz</span></li>
+                                <li><i class="fas fa-check"></i> <span><strong>Mobil &amp; Tablet Uyumlu:</strong> Tüm ekranlarda (%100 Responsive) kusursuz görünüm</span></li>
+                                <li><i class="fas fa-check"></i> <span><strong>WhatsApp Hızlı Teklif Hattı:</strong> Müşterilerin doğrudan tek tıkla size ulaşabilmesi</span></li>
+                                <li><i class="fas fa-check"></i> <span><strong>Hizmet &amp; Ürün Vitrini:</strong> Faaliyetlerinizi en etkileyici şekilde sergileyen bölümler</span></li>
+                                <li><i class="fas fa-check"></i> <span><strong>Maksimum Hız &amp; Performans:</strong> Hızlı açılan, kasılmayan modern altyapı</span></li>
+                                <li><i class="fas fa-check"></i> <span><strong>Google &amp; SEO Altyapısı:</strong> Arama motorlarına tam uyumluluk ve hızlı indekslenme</span></li>
+                                <li><i class="fas fa-check"></i> <span><strong>Harita, Konum &amp; İletişim:</strong> Müşterilerinizin işletmenizi kolayca bulması</span></li>
+                                <li><i class="fas fa-check"></i> <span><strong>Yayınlama Desteği:</strong> Netlify / Hosting kurulumu ve canlıya alma süreci</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/905546682909?text=Merhaba%20Veli%20Bey,%20Kurumsal%20Tanıtım%20Web%20Sitesi%20paketi%20(4.500%20TL)%20hakkında%20görüşmek%20istiyorum." target="_blank" class="pricing-btn">
+                        <i class="fab fa-whatsapp"></i> Bu Paketi Seç / WhatsApp'tan Başla
+                    </a>
+                </div>
+
+                <!-- Sağ Taraf: İnteraktif Hızlı Teklif Al Modülü -->
+                <div class="quote-calculator-card">
+                    <div class="quote-calc-header">
+                        <span class="calc-badge"><i class="fas fa-bolt"></i> Özel İhtiyaç</span>
+                        <h4>Hızlı Teklif Oluşturun</h4>
+                        <p>Projenizin detaylarını seçin, size en uygun teklifi ve süreci doğrudan WhatsApp üzerinden iletelim.</p>
+                    </div>
+
+                    <form class="quote-calc-form" id="quickQuoteForm" onsubmit="event.preventDefault(); submitQuickQuote();">
+                        <div class="form-group">
+                            <label for="quoteSector"><i class="fas fa-briefcase"></i> Sektör / İşletme Türü</label>
+                            <select id="quoteSector" class="quote-input">
+                                <option value="Kurumsal Şirket / Ofis">Kurumsal Şirket / Ofis</option>
+                                <option value="Elektronik &amp; Teknik (Detlab benzeri)">Elektronik &amp; Teknik (Detlab benzeri)</option>
+                                <option value="Atölye / Üretim / İmalat">Atölye / Üretim / İmalat</option>
+                                <option value="Usta / Hizmet / Tamir">Usta / Hizmet / Tamir</option>
+                                <option value="Kişisel / Portfolyo / Tanıtım">Kişisel / Portfolyo / Tanıtım</option>
+                                <option value="Diğer Kurumsal Proje">Diğer Kurumsal Proje</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quotePages"><i class="fas fa-layer-group"></i> Sayfa &amp; Bölüm Yapısı</label>
+                            <select id="quotePages" class="quote-input">
+                                <option value="Tek Sayfa (Akıcı Vitrin / Landing) [Önerilen]">Tek Sayfa (Akıcı Vitrin / Landing) [Önerilen]</option>
+                                <option value="3-5 Sayfalı Kurumsal Yapı">3-5 Sayfalı Kurumsal Yapı</option>
+                                <option value="Özel Kapsamlı Kurumsal Tasarım">Özel Kapsamlı Kurumsal Tasarım</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-sliders"></i> İstediğiniz Ek Özellikler</label>
+                            <div class="checkbox-group">
+                                <label class="check-label">
+                                    <input type="checkbox" id="featureWa" checked>
+                                    <span>WhatsApp İletişim</span>
+                                </label>
+                                <label class="check-label">
+                                    <input type="checkbox" id="featureGallery" checked>
+                                    <span>Görsel Vitrini</span>
+                                </label>
+                                <label class="check-label">
+                                    <input type="checkbox" id="featureMap" checked>
+                                    <span>Google Harita</span>
+                                </label>
+                                <label class="check-label">
+                                    <input type="checkbox" id="featureTheme" checked>
+                                    <span>Özel Renk Temaları</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quoteNote"><i class="fas fa-comment-alt"></i> Eklemek İstediğiniz Not (Opsiyonel)</label>
+                            <input type="text" id="quoteNote" class="quote-input" placeholder="Örn: 1 hafta içinde hazır olmasını istiyorum...">
+                        </div>
+
+                        <button type="submit" class="quote-submit-btn">
+                            <i class="fab fa-whatsapp"></i> WhatsApp ile Teklif İste
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sıkça Sorulan Sorular (S.S.S.) Bölümü -->
+            <div class="faq-section">
+                <div class="section-title">
+                    <i class="fas fa-circle-question"></i> Sıkça Sorulan Sorular
+                </div>
+                <div class="faq-accordion" id="faqAccordion">
+                    <!-- Soru 1 -->
+                    <div class="faq-item active" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-question-circle faq-icon-q"></i> Ne tür web siteleri geliştiriyorsunuz?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Detlab Elektronik referansımızda gördüğünüz gibi; firmaların, atölyelerin, hizmet sektöründeki ustaların ve girişimlerin dijital dünyada prestij kazanmasını sağlayan modern kurumsal tanıtım, portföy ve açılış (vitrin) siteleri inşa ediyorum. Sepetli ve online ödemeli e-ticaret siteleri yapmıyorum; amacım doğrudan işletmenize müşteri kazandıran şık ve hızlı bir dijital kimlik sunmaktır.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 2 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-clock faq-icon-q"></i> Web sitem ne kadar sürede tamamlanır?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>İçerik ve görselleriniz netleştikten sonra ortalama <strong>3 ila 5 iş günü</strong> içerisinde siteniz tamamlanıp onayınıza sunulur ve yayına hazır hale getirilir.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 3 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-mobile-alt faq-icon-q"></i> Sitem cep telefonlarında ve tabletlerde düzgün çalışır mı?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kesinlikle evet! Tüm tasarımlarım %100 mobil uyumlu (Responsive) olarak geliştirilir. iPhone, Android telefonlar, tabletler ve bilgisayarlarda kusursuz, donmayan ve akıcı bir deneyim sağlar.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 4 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-search faq-icon-q"></i> Google'da (Arama Motorlarında) çıkacak mıyım?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet. Siteniz temel SEO kurallarına, semantik HTML etiketlerine ve Google'ın arama botlarının kolayca indeksleyebileceği hızlı altyapıya uygun olarak kodlanır.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 5 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-server faq-icon-q"></i> Hosting ve alan adı (domain) desteği sağlıyor musunuz?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Evet. Sitenizin Netlify gibi modern, dünya standardında hızlı ve güvenli sunucularda ücretsiz barındırılması ve alan adınızın bağlanması sürecinde baştan sona tam teknik destek sağlıyorum.</p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 6 -->
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span><i class="fas fa-headset faq-icon-q"></i> Teslimat sonrasında destek ve güncelleme alabilir miyim?</span>
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Elbette. Proje tesliminden sonra da doğrudan WhatsApp veya telefon üzerinden bana ulaşabilir, teknik destek ve güncelleme taleplerinizi güvenle iletebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE VIEW -->
+        <div id="page-contact" class="page-view">
+            <div class="page-header">
+                <div class="page-title">
+                    <i class="fas fa-envelope"></i> İLETİŞİM
+                </div>
+                <div class="page-badge">BANA ULAŞIN</div>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Telefon Kartı -->
+                <a href="tel:05546682909" class="contact-card phone-card">
+                    <i class="fas fa-phone"></i>
+                    <h4>TELEFON NUMARASI</h4>
+                    <p>0554 668 29 09</p>
+                </a>
+
+                <!-- WhatsApp Kartı -->
+                <div class="wa-custom-card">
+                    <div class="card-inner-content">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <div class="avatar-box">
+                                    <img src="logowt.jpg" alt="WhatsApp Profil" onerror="this.onerror=null; this.src='https://i.imgur.com/8Q9Z5zN.jpg';">
+                                </div>
+                            </div>
+                            <div class="user-info">
+                                <span class="user-name">Veli</span>
+                                <span class="user-handle">WhatsApp Hattı</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/905546682909" target="_blank" class="action-btn wa-btn">
+                            <i class="fab fa-whatsapp"></i> Mesaj Gönder
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Instagram Kartı -->
+                <div class="insta-card">
+                    <div class="card-inner-content">
+                        <div class="profile-header">
+                            <div class="avatar-wrapper">
+                                <div class="avatar-box">
+                                    <i class="fa-solid fa-spider"></i>
+                                </div>
+                            </div>
+                            <div class="user-info">
+                                <span class="user-name">Veli</span>
+                                <span class="user-handle insta-handle">@veli.vz</span>
+                            </div>
+                        </div>
+                        <a href="https://instagram.com/veli.vz" target="_blank" class="action-btn insta-btn">
+                            <i class="fab fa-instagram"></i> Instagram'dan Ulaşın
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- TEMA SEÇİCİ -->
+    <div class="theme-picker-wrap" id="themePickerWrap">
+        <div class="theme-panel" id="themePanel">
+            <div class="theme-panel-title">Tema Seç</div>
+
+            <!-- 1: Altın Kırmızı (Varsayılan) -->
+            <div class="theme-option active-theme" data-theme="default" onclick="setTheme('default', this)">
+                <div class="theme-swatch" style="background:#8b0000;">
+                    <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#d4af37;"></div>
+                </div>
+                <span class="theme-option-label">Altın Kırmızı</span>
+                <div class="theme-active-dot"></div>
+            </div>
+
+            <!-- 2: Sakura -->
+            <div class="theme-option" data-theme="sakura" onclick="setTheme('sakura', this)">
+                <div class="theme-swatch" style="background:#c06080;">
+                    <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#e8a0b4;"></div>
+                </div>
+                <span class="theme-option-label">Sakura</span>
+                <div class="theme-active-dot"></div>
+            </div>
+
+            <!-- 3: Zarif -->
+            <div class="theme-option" data-theme="elegant" onclick="setTheme('elegant', this)">
+                <div class="theme-swatch" style="background:#505070;">
+                    <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#c8c8d8;"></div>
+                </div>
+                <span class="theme-option-label">Zarif</span>
+                <div class="theme-active-dot"></div>
+            </div>
+
+            <!-- 4: Zümrüt -->
+            <div class="theme-option" data-theme="emerald" onclick="setTheme('emerald', this)">
+                <div class="theme-swatch" style="background:#006040;">
+                    <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#50c878;"></div>
+                </div>
+                <span class="theme-option-label">Zümrüt</span>
+                <div class="theme-active-dot"></div>
+            </div>
+
+            <!-- 5: Ay Işığı -->
+            <div class="theme-option" data-theme="moonlight" onclick="setTheme('moonlight', this)">
+                <div class="theme-swatch" style="background:#5b21b6;">
+                    <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#a78bfa;"></div>
+                </div>
+                <span class="theme-option-label">Ay Işığı</span>
+                <div class="theme-active-dot"></div>
+            </div>
+
+            <!-- 6: Kor Ateş -->
+            <div class="theme-option" data-theme="ember" onclick="setTheme('ember', this)">
+                <div class="theme-swatch" style="background:#c43010;">
+                    <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#ff7c38;"></div>
+                </div>
+                <span class="theme-option-label">Kor Ateş</span>
+                <div class="theme-active-dot"></div>
+            </div>
+
+            <!-- 7: Okyanus -->
+            <div class="theme-option" data-theme="ocean" onclick="setTheme('ocean', this)">
+                <div class="theme-swatch" style="background:#0369a1;">
+                    <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#38bdf8;"></div>
+                </div>
+                <span class="theme-option-label">Okyanus</span>
+                <div class="theme-active-dot"></div>
+            </div>
+
+            <!-- 8: Kül -->
+            <div class="theme-option" data-theme="ash" onclick="setTheme('ash', this)">
+                <div class="theme-swatch" style="background:#334155;">
+                    <div style="position:absolute;left:0;top:0;width:50%;height:100%;background:#94a3b8;"></div>
+                </div>
+                <span class="theme-option-label">Kül</span>
+                <div class="theme-active-dot"></div>
+            </div>
+        </div>
+
+        <!-- Açma/Kapama Butonu -->
+        <div class="theme-toggle-btn" id="themeToggleBtn" title="Tema Seç">
+            <i class="fas fa-palette"></i>
+        </div>
+    </div>
+
+    <!-- MÜZİK ÇALAR WIDGET'I -->
+    <div class="music-player-wrap" id="musicPlayerWrap">
+        <button class="music-toggle-btn" id="musicToggleBtn" title="Site Müziğini Oynat / Durdur" aria-label="Site Müziği Kontrolü">
+            <div class="music-wave-bars">
+                <span class="music-bar"></span>
+                <span class="music-bar"></span>
+                <span class="music-bar"></span>
+                <span class="music-bar"></span>
+            </div>
+            <i class="fas fa-music"></i>
+            <span class="music-label">Fon Müziği: <strong id="musicStatusText">Kapalı</strong></span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 VELİ | Veli Salaraslan. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // ── SİNEMATİK INTRO & REEL GİRİŞİ ─────────────
+        let cinemaStarted = false;
+
+        function finishIntroAndStartCinema() {
+            if (cinemaStarted) return;
+            cinemaStarted = true;
+
+            // 1. İntro bitiminde kişi henüz ay ışığı temasını sitede görmeden anında Kor Ateş (ember) temasına geç
+            document.documentElement.setAttribute('data-theme', 'ember');
+            applyBackground('ember');
+            document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active-theme'));
+            const emberOpt = document.querySelector('.theme-option[data-theme="ember"]');
+            if (emberOpt) emberOpt.classList.add('active-theme');
+            localStorage.setItem('veli-theme', 'ember');
+
+            const introOverlay = document.getElementById('intro-overlay');
+            if (introOverlay) {
+                introOverlay.classList.add('hidden');
+            }
+
+            // 2. Müzik tam intro bittiği anda patlasın (Beat drop / Sinematik başlangıç)
+            startMusicOnCinemaDrop();
+
+            // 3. Akıcı sinematik yerleşim animasyonunu başlat
+            document.body.classList.remove('cinema-pre');
+            document.body.classList.add('cinema-active');
+
+            // 4. Akıcı animasyonlar tamamlandığında normal akışa sabitle (2.6 saniye)
+            setTimeout(() => {
+                document.body.classList.remove('cinema-active');
+                document.body.classList.add('cinema-settled');
+            }, 2600);
+        }
+
+        function skipIntro() {
+            finishIntroAndStartCinema();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const wrapper = document.querySelector('.intro-brand-wrapper');
+            const emblem = document.querySelector('.intro-emblem');
+
+            // Ekran ortasından sola kayma mesafesini piksel olarak ayarla
+            if (wrapper && emblem) {
+                const shift = (wrapper.offsetWidth - emblem.offsetWidth) / 2;
+                if (shift > 0) {
+                    document.documentElement.style.setProperty('--intro-center-shift', shift + 'px');
+                }
+            }
+
+            // İntro animasyonu tamamlandığında (4.0 saniye):
+            // İntro perdesi kalkar, müzik başlar ve tüm kartlar takır takır yerine oturur!
+            setTimeout(() => {
+                finishIntroAndStartCinema();
+            }, 4000);
+        });
+
+        // ── SIKÇA SORULAN SORULAR (FAQ) ──────────────
+        function toggleFaq(item) {
+            const isCurrentlyActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            if (!isCurrentlyActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // ── HIZLI TEKLİF WHATSAPP GÖNDERİMİ ──────────
+        function submitQuickQuote() {
+            const sector = document.getElementById('quoteSector') ? document.getElementById('quoteSector').value : 'Kurumsal';
+            const pages = document.getElementById('quotePages') ? document.getElementById('quotePages').value : 'Tek Sayfa';
+            const noteEl = document.getElementById('quoteNote');
+            const note = noteEl ? noteEl.value.trim() : '';
+
+            const features = [];
+            if (document.getElementById('featureWa') && document.getElementById('featureWa').checked) features.push('WhatsApp İletişim');
+            if (document.getElementById('featureGallery') && document.getElementById('featureGallery').checked) features.push('Görsel Vitrini');
+            if (document.getElementById('featureMap') && document.getElementById('featureMap').checked) features.push('Google Harita');
+            if (document.getElementById('featureTheme') && document.getElementById('featureTheme').checked) features.push('Özel Tema');
+
+            let msg = `Merhaba Veli Bey,%0AWeb sitesi projesi için teklif almak istiyorum:%0A%0A`;
+            msg += `• *Sektör:* ${encodeURIComponent(sector)}%0A`;
+            msg += `• *Sayfa Yapısı:* ${encodeURIComponent(pages)}%0A`;
+            if (features.length > 0) {
+                msg += `• *Ek Özellikler:* ${encodeURIComponent(features.join(', '))}%0A`;
+            }
+            if (note) {
+                msg += `• *Müşteri Notu:* ${encodeURIComponent(note)}%0A`;
+            }
+            msg += `%0ADetaylar ve fiyat teklifi hakkında bilgi alabilir miyim?`;
+
+            const waUrl = `https://wa.me/905546682909?text=${msg}`;
+            window.open(waUrl, '_blank');
+        }
+
+        // ── MÜZİK ÇALAR ──────────────────────────────
+        const siteMusic = document.getElementById('siteMusic');
+        const musicToggleBtn = document.getElementById('musicToggleBtn');
+        const musicStatusText = document.getElementById('musicStatusText');
+        let musicStarted = false;
+
+        function setMusicState(isPlaying) {
+            if (musicToggleBtn) {
+                if (isPlaying) {
+                    musicToggleBtn.classList.add('playing');
+                    if (musicStatusText) musicStatusText.textContent = 'Çalıyor';
+                } else {
+                    musicToggleBtn.classList.remove('playing');
+                    if (musicStatusText) musicStatusText.textContent = 'Durduruldu';
+                }
+            }
+        }
+
+        function toggleSiteMusic() {
+            if (!siteMusic) return;
+            if (siteMusic.paused) {
+                siteMusic.play().then(() => {
+                    musicStarted = true;
+                    setMusicState(true);
+                }).catch(err => {
+                    console.log('Müzik başlatılamadı:', err);
+                    setMusicState(false);
+                });
+            } else {
+                siteMusic.pause();
+                setMusicState(false);
+            }
+        }
+
+        if (musicToggleBtn) {
+            musicToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleSiteMusic();
+            });
+        }
+
+        // İntro bitince sinematik düşüşle müziği başlatan fonksiyon
+        function startMusicOnCinemaDrop() {
+            if (!siteMusic) return;
+            siteMusic.volume = 0.45;
+            const playPromise = siteMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    musicStarted = true;
+                    setMusicState(true);
+                }).catch(err => {
+                    console.log('Tarayıcı otomatik sesi bekletti:', err);
+                    setMusicState(false);
+                });
+            }
+        }
+
+        // Kullanıcı intro'ya veya sayfaya dokunursa/tıklarsa hazırda beklet
+        const triggerEvents = ['click', 'touchstart', 'pointerdown', 'mousedown', 'keydown'];
+        function handleFirstUserAction() {
+            if (cinemaStarted && siteMusic && siteMusic.paused) {
+                startMusicOnCinemaDrop();
+            }
+            triggerEvents.forEach(evt => document.removeEventListener(evt, handleFirstUserAction));
+        }
+        triggerEvents.forEach(evt => document.addEventListener(evt, handleFirstUserAction, { passive: true }));
+
+        // ── PAGE SWITCHER ────────────────────────────
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(view => {
+                view.classList.remove('active');
+            });
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) targetPage.classList.add('active');
+
+            document.querySelectorAll('.desktop-nav a').forEach(nav => nav.classList.remove('active'));
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) activeNav.classList.add('active');
+
+            document.querySelectorAll('.mobile-drawer a').forEach(mob => mob.classList.remove('active'));
+            const activeMob = document.getElementById('mob-' + pageId);
+            if (activeMob) activeMob.classList.add('active');
+
+            closeDrawer();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ── MOBILE DRAWER ────────────────────────────
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+
+        function toggleDrawer() {
+            mobileDrawer.classList.toggle('open');
+            drawerOverlay.classList.toggle('active');
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.remove('open');
+            drawerOverlay.classList.remove('active');
+        }
+
+        mobileToggle.addEventListener('click', toggleDrawer);
+        drawerOverlay.addEventListener('click', closeDrawer);
+
+        // ── SCROLL TO TOP ────────────────────────────
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('show', window.scrollY > 300);
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ── TEMA SEÇİCİ ──────────────────────────────
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themePanel = document.getElementById('themePanel');
+
+        themeToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            themePanel.classList.toggle('open');
+        });
+
+        // Panel dışına tıklanınca kapat
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#themePickerWrap')) {
+                themePanel.classList.remove('open');
+            }
+        });
+
+        function applyBackground(themeName) {
+            const bgMap = {
+                'ember':     'korarkaplan.jpg',
+                'sakura':    'sakura.jpg',
+                'ash':       'külarkaplan.jpg',
+                'elegant':   'zarif.jpg',
+                'emerald':   'zümrüt.jpg',
+                'ocean':     'okyanus.jpg',
+                'moonlight': 'ayisik.gif'
+            };
+            const bg = bgMap[themeName] || 'arkaplan.jpg';
+            document.body.style.backgroundImage = `url('${bg}')`;
+        }
+
+        function setTheme(themeName, clickedEl) {
+            // data-theme uygula
+            if (themeName === 'default') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', themeName);
+            }
+
+            // Arkaplan görselini değiştir
+            applyBackground(themeName);
+
+            // Aktif seçenek işareti
+            document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('active-theme'));
+            clickedEl.classList.add('active-theme');
+
+            // LocalStorage'a kaydet
+            localStorage.setItem('veli-theme', themeName);
+
+            // Paneli kapat (küçük gecikme ile)
+            setTimeout(() => themePanel.classList.remove('open'), 220);
+        }
+
+        // Sayfa ilk yüklendiğinde intro esnasında Ay Işığı teması aktiftir
+        (function() {
+            document.documentElement.setAttribute('data-theme', 'moonlight');
+            applyBackground('moonlight');
+            const matchingOpt = document.querySelector('.theme-option[data-theme="moonlight"]');
+            if (matchingOpt) {
+                document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active-theme'));
+                matchingOpt.classList.add('active-theme');
+            }
+        })();
+    </script>
+</body>
+</html>
